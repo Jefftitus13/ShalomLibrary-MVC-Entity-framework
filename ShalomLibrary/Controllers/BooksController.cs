@@ -52,7 +52,7 @@ namespace ShalomLibrary.Controllers
         {
             var books = await shalomLibraryDbContext.Books.FirstOrDefaultAsync(a => a.Id == id);
 
-            if (books == null)
+            if (books != null)
             {
                 var viewModel = new UpdateBookViewModel()
                 {
@@ -65,9 +65,40 @@ namespace ShalomLibrary.Controllers
                     CopiesAvailable = books.CopiesAvailable,
                     Price = books.Price,
                 };
-                return View(viewModel);
+                return await Task.Run(() => View("View", viewModel));
             }
 
+            return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public async Task<IActionResult> View(UpdateBookViewModel model)
+        {
+            var books = await shalomLibraryDbContext.Books.FindAsync(model.Id);
+            if (books != null)
+            {
+                books.BookTitle = model.BookTitle;
+                books.Author = model.Author;
+                books.Genre = model.Genre;
+                books.Description = model.Description;
+                books.YearPublished = model.YearPublished;
+                books.CopiesAvailable = model.CopiesAvailable;
+                books.Price = model.Price;
+
+                await shalomLibraryDbContext.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Add");
+        }
+        [HttpPost]
+        public async Task<IActionResult> Delete(UpdateBookViewModel model)
+        {
+            var books = await shalomLibraryDbContext.Books.FindAsync(model.Id);
+            if (books != null)
+            {
+                shalomLibraryDbContext.Books.Remove(books);
+                await shalomLibraryDbContext.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
             return RedirectToAction("Index");
         }
     }
