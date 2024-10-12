@@ -1,8 +1,12 @@
-﻿@model ShalomLibrary.Models.AddBooksViewModel
+﻿@model ShalomLibrary.Models.UpdateBookViewModel
 @{
 }
-<h1>New Book to Arsenal</h1>
+<h1>Edit Book</h1>
 <form method="post" action="Add" class="mt-5">
+    <div class="mb-3">
+        <label for="" class="form-label">Id</label>
+        <input type="text" class="form-control" asp-for="Id" readonly>
+    </div>
     <div class="mb-3">
         <label for="" class="form-label">Book Title</label>
         <input type="text" class="form-control" asp-for="BookTitle">
