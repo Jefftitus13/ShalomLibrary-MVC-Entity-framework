@@ -31,7 +31,10 @@ Shalom Library is an online library management system that allows users to explo
 6. Search: Search functionality to quickly find specific books by title or author.
 
 ## Screenshots
-Include relevant screenshots of the website here to showcase the user interface and features.
+![image](https://github.com/user-attachments/assets/313fa269-a30d-4c7e-9abd-f77f223378c0)
+![image](https://github.com/user-attachments/assets/6f7e6735-ed6c-4963-bd53-695e452d7c4f)
+![image](https://github.com/user-attachments/assets/fb44a719-a46d-4444-943d-056044e83b1a)
+
 
 ## Future Enhancements
 Here are some ideas for future improvements:
