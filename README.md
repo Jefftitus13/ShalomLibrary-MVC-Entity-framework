@@ -41,8 +41,11 @@ Shalom Library is an online library management system that allows users to explo
 Here are some ideas for future improvements:
 
 📄 User Authentication: Implement login and user roles to restrict certain actions like book editing and deletion.
+
 ⭐ Ratings and Reviews: Allow users to rate and review books.
+
 🛠️ REST API Integration: Expose CRUD operations via API endpoints for external systems to interact with the library.
+
 📊 Analytics Dashboard: Provide an admin view with stats like popular books and user activity.
 
 ## Conclusion
