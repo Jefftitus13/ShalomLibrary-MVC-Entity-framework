@@ -31,17 +31,21 @@ Shalom Library is an online library management system that allows users to explo
 6. Search: Search functionality to quickly find specific books by title or author.
 
 ## Screenshots
-![image](https://github.com/user-attachments/assets/313fa269-a30d-4c7e-9abd-f77f223378c0)
-![image](https://github.com/user-attachments/assets/57ebfd99-8f9f-467f-98aa-7c9f52a11041)
-![image](https://github.com/user-attachments/assets/fb44a719-a46d-4444-943d-056044e83b1a)
-
+![image](https://github.com/user-attachments/assets/a2a55a85-9b80-45de-b0ff-ad5adef486a8)
+![image](https://github.com/user-attachments/assets/9f14d0a5-1abf-4298-9edf-6e766daa8c9e)
+![image](https://github.com/user-attachments/assets/e34e4d32-ec7d-4e00-b703-f4db606ecc84)
+![image](https://github.com/user-attachments/assets/79893b7e-7a24-42ff-a719-20936086b38a)
+![image](https://github.com/user-attachments/assets/310f3ed1-2606-42b7-ad8c-4ea32059f08a)
 
 ## Future Enhancements
 Here are some ideas for future improvements:
 
 📄 User Authentication: Implement login and user roles to restrict certain actions like book editing and deletion.
+
 ⭐ Ratings and Reviews: Allow users to rate and review books.
+
 🛠️ REST API Integration: Expose CRUD operations via API endpoints for external systems to interact with the library.
+
 📊 Analytics Dashboard: Provide an admin view with stats like popular books and user activity.
 
 ## Conclusion
