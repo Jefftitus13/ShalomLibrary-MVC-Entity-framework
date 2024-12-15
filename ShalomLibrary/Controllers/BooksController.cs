@@ -16,9 +16,14 @@ namespace ShalomLibrary.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
             var Books = await shalomLibraryDbContext.Books.ToListAsync();
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Books = Books.Where(n => n.Author.Contains(searchString) || n.BookTitle.Contains(searchString)).ToList();
+            }
             return View(Books);
         }
 
@@ -41,7 +46,7 @@ namespace ShalomLibrary.Controllers
                 CopiesAvailable = addBookRequest.CopiesAvailable,
                 Price = addBookRequest.Price,
             };
-            
+
             await shalomLibraryDbContext.Books.AddAsync(books);
             await shalomLibraryDbContext.SaveChangesAsync();
             return RedirectToAction("Index");

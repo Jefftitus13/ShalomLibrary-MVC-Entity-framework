@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShalomLibrary.Data;
 
@@ -11,9 +12,11 @@ using ShalomLibrary.Data;
 namespace ShalomLibrary.Migrations
 {
     [DbContext(typeof(ShalomLibraryDbContext))]
-    partial class ShalomLibraryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241207084653_secondary")]
+    partial class secondary
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,11 +32,9 @@ namespace ShalomLibrary.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Author")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("BookTitle")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CopiesAvailable")
@@ -43,7 +44,6 @@ namespace ShalomLibrary.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Genre")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("Price")

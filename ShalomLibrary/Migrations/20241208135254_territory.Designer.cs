@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShalomLibrary.Data;
 
@@ -11,9 +12,11 @@ using ShalomLibrary.Data;
 namespace ShalomLibrary.Migrations
 {
     [DbContext(typeof(ShalomLibraryDbContext))]
-    partial class ShalomLibraryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241208135254_territory")]
+    partial class territory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
