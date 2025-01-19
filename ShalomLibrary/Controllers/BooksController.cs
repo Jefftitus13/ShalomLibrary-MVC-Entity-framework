@@ -22,7 +22,9 @@ namespace ShalomLibrary.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                Books = Books.Where(n => n.Author.Contains(searchString) || n.BookTitle.Contains(searchString)).ToList();
+                Books = Books.Where(n => n.Author.Contains(searchString) 
+                || n.BookTitle.Contains(searchString)
+                || n.Genre.Contains(searchString)).ToList();
             }
             return View(Books);
         }
