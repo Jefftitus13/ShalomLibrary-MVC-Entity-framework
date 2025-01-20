@@ -1,5 +1,6 @@
 ﻿@model List<ShalomLibrary.Models.Domain.Books>
 @{
+    var searchTerm = ViewBag.SearchString?.ToLower();
 }
 <h1>Books</h1>
 
@@ -32,7 +33,7 @@
     <tbody>
         @foreach (var Books in Model)
         {
-            <tr>
+            <tr class="book-row">
                 <td>@Books.Id</td>
                 <td>@Books.BookTitle</td>
                 <td>@Books.Author</td>
@@ -47,3 +48,38 @@
     </tbody>
 
 </table>
+
+<style>
+    .highlight {
+        background-color: yellow;
+        font-weight: bold;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var searchTerm = '@searchTerm'.toLowerCase().trim();
+
+        if (searchTerm) {
+            var rows = document.querySelectorAll('.book-row');
+
+            rows.forEach(function (row) {
+                
+                highlightText(row.children[1], searchTerm);
+                highlightText(row.children[2], searchTerm);
+                highlightText(row.children[3], searchTerm);
+            });
+        }
+    });
+
+    function highlightText(element, searchTerm) {
+        if (element && element.textContent) {
+            var text = element.textContent;
+            var regex = new RegExp('(' + searchTerm + ')', 'gi');
+
+            element.innerHTML = text.replace(regex, function (match) {
+                return `<span class="highlight">${match}</span>`;
+            });
+        }
+    }
+</script>
