@@ -18,16 +18,16 @@ namespace ShalomLibrary.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(string searchString)
         {
-            var Books = await shalomLibraryDbContext.Books.ToListAsync();
+            var bookSearch = await shalomLibraryDbContext.Books.ToListAsync();
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                Books = Books.Where(n => n.Author.Contains(searchString) 
+                bookSearch = bookSearch.Where(n => n.Author.Contains(searchString) 
                                       || n.BookTitle.Contains(searchString)
                                       || n.Genre.Contains(searchString)).ToList();
             }
             ViewBag.SearchString = searchString;
-            return View(Books);
+            return View(bookSearch);
         }
 
         [HttpGet]
